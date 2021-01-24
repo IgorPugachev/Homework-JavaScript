@@ -41,9 +41,10 @@ alert("Variable X equals: " + x);
 //     если а и b отрицательные, вывести их произведение;
 //     если а и b разных знаков, вывести их сумму; ноль можно считать положительным числом. ### 
 
+*/
 
-let a = 5;
-let b = 8;
+let a = prompt("Please enter the first number. It will be A");
+let b = prompt("Please enter the second number. It will be B");
 let c = 0;
 if(a >= 0 && b >= 0) {
     c = a - b;
@@ -56,42 +57,66 @@ if(a >= 0 && b >= 0) {
     alert("Sum of A and B equals: " + c);
 }
 
-*/
 
 /*
-4. Присвоить переменной а значение в промежутке [0..15]. С помощью оператора switch организовать вывод чисел от a до 15. ### 
+4. Реализовать основные 4 арифметические операции (+, -, /, *) в виде функций с двумя параметрами. Т.е. например, функция для сложения должна принимать два числа, складывать их и возвращать результат.
+Обязательно использовать оператор return.
 
-let a = 12;
-
-switch(someNumber) {
-    case 
+*/
+function addNumbers (x, y){
+    const finalResult = x + y;
+    alert("The result of addition is: " + finalResult);
+    return finalResult;
 }
 
+function subtractNumbers (x, y){
+    const finalResult = x - y;
+    alert("The result of subtraction is: " + finalResult);
+    return x - y;
+}
 
-*/
+function multiplyNumbers (x, y){
+    const finalResult = x * y;
+    alert("The result of multiplication is: " + finalResult);
+    return x * y;
+}
 
-/*
-5. Реализовать основные 4 арифметические операции в виде функций с двумя параметрами. Обязательно использовать оператор return. ### 
-*/
-/*
-6. Реализовать функцию с тремя параметрами: function mathOperation(arg1, arg2, operation), где arg1, arg2 – значения аргументов, 
-operation – строка с названием операции. В зависимости от переданного значения операции выполнить 
-одну из арифметических операций (использовать функции из пункта 3) и вернуть полученное значение (использовать switch). ### 
-
-
-
-
-*/
-
-/*
-7. *Сравнить null и 0. Попробуйте объяснить результат. ### 
-
-
-*/
+function divideNumbers (x, y){
+    const finalResult = x / y;
+    alert("The result of division is: " + finalResult);
+    return x / y;
+}
 
 /*
-8. *С помощью рекурсии организовать функцию возведения числа в степень. 
-Формат: function power(val, pow), где val – заданное число, pow – степень.
-
+Реализовать функцию с тремя параметрами: function mathOperation(arg1, arg2, operation),
+где arg1, arg2 – значения аргументов, operation – строка с названием операции. В зависимости от
+переданного значения операции (использовать switch) выполнить одну из арифметических операций
+(использовать функции из задания 4) и вернуть полученное значение.
 
 */
+
+function mathOperation (arg1, arg2, operation){
+    switch(operation){
+        case "addition":
+            return addNumbers(arg1, arg2);
+
+        case "subtraction":
+            return subtractNumbers(arg1, arg2);
+
+        case "multiplication":
+            return multiplyNumbers(arg1, arg2);
+
+        case "division":
+            return divideNumbers(arg1, arg2);
+        default:
+            alert("Please, enter the correct information!")
+    }
+       
+}
+
+let number1 = parseInt(prompt("Please enter the first number")); // Запрашиваем у пользователя первое число
+let number2 = parseInt(prompt("Please enter the second number")); // Запрашивае у пользователя второе число
+let typeOfOperation = String(prompt("Please enter the type of operation")); // Запрашиваем тип математической операции
+
+// вызываем функцию, используя в качестве параметров введенные пользователем данные
+mathOperation(number1, number2, typeOfOperation);
