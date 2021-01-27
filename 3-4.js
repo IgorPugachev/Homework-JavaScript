@@ -20,10 +20,19 @@ const products =
             price: 78,
         },
     ];
+// Отбираем те массивы, где есть элемент photos
+const productPhotos = products.filter(item => item.photos);
+// Из полученного результата теперь отбираем те элементы, где
+// элемент photos не пустой.
+const finalPhotos = productPhotos.filter(item => item.photos.length > 0);
+console.log(finalPhotos);
 
-// let productPhotos = products.filter(item => item.photos);
-// console.log(productPhotos);
 
-// products.price.sort(compareNumbers);
+const sortedPrice = products.sort(function (a, b) {
+    return a.price - b.price
 
+}
+);
+
+console.log(sortedPrice);
 
